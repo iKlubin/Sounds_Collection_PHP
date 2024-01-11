@@ -110,7 +110,6 @@ button:hover {
 
 
 .sound-list {
-    margin-top: 1000px;
     width: 900px;
     padding: 50px;
 }
@@ -153,6 +152,6 @@ button:hover {
 }
 
 .uploaded-by, .creation-date {
-    font-size: 12px;
+    font-size: 16px;
     color: #666;
 }
