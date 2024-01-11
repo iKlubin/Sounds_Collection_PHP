@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Цвет фона страницы */
+}
+
+h2 {
+    color: #333; /* Цвет заголовка */
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Высота экрана */
+}
+
+.login-box {
+    width: 600px;
+    height: 400px;
+    background-color: #fff; /* Цвет фона формы */
+    padding: 20px;
+    border-radius: 10px; /* Закругленные углы формы */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень формы */
+    text-align: center;
+}
+
+.login-form {
+    text-align: left;
+}
+
+.register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Высота экрана */
+}
+
+.register-box {
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-form {
+    text-align: left;
+}
+
+.add-sound-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.add-sound-box {
+    width: 600px;
+    height: 500px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.add-sound-form {
+    text-align: left;
+}
+
+input, select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-bottom: 10px;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.catalog-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+.sound-list {
+    margin-top: 1000px;
+    width: 900px;
+    padding: 50px;
+}
+
+.sound-item {
+    width: 900px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.play-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.sound-details {
+    flex-grow: 1;
+}
+
+.sound-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sound-info {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.category-icon, .download-icon {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.uploaded-by, .creation-date {
+    font-size: 12px;
+    color: #666;
+}
