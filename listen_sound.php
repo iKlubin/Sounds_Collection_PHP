@@ -35,7 +35,9 @@ $stmt->close();
     <h2>Listen Sound</h2>
 
     <audio controls>
-        <source src="<?php echo $sound['file_path']; ?>" type="audio/mpeg">
+        <source src="<?php
+            echo $sound['file_path'];
+        ?>" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 

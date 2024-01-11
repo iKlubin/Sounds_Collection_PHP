@@ -41,6 +41,7 @@
         <?php
         if (isUserAuthenticated()) {
             echo '<li><a href="logout.php">Выйти</a></li>';
+            echo '<li><a>['.$_SESSION['username'].']</a></li>';
         } else {
             echo '<li><a href="login.php">Войти</a></li>';
             echo '<li><a href="register.php">Зарегистрироваться</a></li>';

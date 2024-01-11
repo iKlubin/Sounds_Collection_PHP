@@ -19,4 +19,14 @@ if (!function_exists('redirectToLogin')) {
         exit();
     }
 }
+
+if (!function_exists('isAdmin')) {
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    function isAdmin() {
+        return isset($_SESSION['is_admin']);
+    }
+}
 ?>

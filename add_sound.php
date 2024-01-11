@@ -16,20 +16,37 @@ if (!isUserAuthenticated()) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $soundName = $_POST['title'];
     $category = $_POST['category'];
+    $sound_description = $_POST['description'];
+    $user_id = $_SESSION['user_id'];
 
-    // Обработка загрузки файла звука
-    $uploadDirectory = 'uploads/'; // Папка, куда будут загружены звуки
+    // Обработка загрузки файла
+    $file_name = $_FILES['sound_file']['name'];
+    $file_size = $_FILES['sound_file']['size'];
+    $file_tmp = $_FILES['sound_file']['tmp_name'];
+
+    $max_size = 50 * 1024 * 1024; // 50MB в байтах
+    if ($file_size > $max_size) {
+        $_SESSION['add_sound_error'] = 'File size exceeds the limit (50MB).';
+        header('Location: add_sound.php');
+        exit();
+    }
+
+    // Создание уникального имени файла
+    $unique_name = uniqid().'_'.$file_name;
+
+    // Полный путь к файлу
+    $upload_path = 'sounds/'.lcfirst($category).'/'.$unique_name;
 
     if ($_FILES['sound_file']['error'] == UPLOAD_ERR_OK) {
         $filename = basename($_FILES['sound_file']['name']);
-        $uploadFilePath = $uploadDirectory . $filename;
+        $uploadFilePath = $uploadDirectory.$filename;
 
-        // Перемещение файла в указанную директорию
-        move_uploaded_file($_FILES['sound_file']['tmp_name'], $uploadFilePath);
+        // Перемещение файла в папку назначения
+        move_uploaded_file($file_tmp, $upload_path);
 
         // Сохранение информации о звуке в базе данных
-        $insertQuery = $pdo->prepare("INSERT INTO sounds (title, category, file_path) VALUES (?, ?, ?)");
-        $insertQuery->execute([$soundName, $category, $uploadFilePath]);
+        $insertQuery = $pdo->prepare("INSERT INTO sounds (category, title, file_path, user_id, description) VALUES (?, ?, ?, ?, ?)");
+        $insertQuery->execute([$category, $soundName, $upload_path, $user_id, $sound_description]);
 
         // Редирект на страницу каталога звуков
         header('Location: catalog.php');
@@ -72,12 +89,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <select id="category" name="category" required>
                     <option value="fire">Fire</option>
                     <option value="city">City</option>
-                    <option value="fire">Applause</option>
-                    <option value="city">Animals</option>
+                    <option value="applause">Applause</option>
+                    <option value="animals">Animals</option>
                 </select>
 
-                <label for="sound_description">Description:</label>
-                <textarea id="sound_description" name="sound_description" required></textarea>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
 
                 <label for="sound_file">Sound File (max 50MB):</label>
                 <input type="file" id="sound_file" name="sound_file" accept=".mp3, .wav" required>

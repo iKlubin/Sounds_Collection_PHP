@@ -20,8 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $insert_query = $pdo->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-        $insert_query->execute([$username, $hashed_password]);
+        $insert_query = $pdo->prepare("INSERT INTO users (username, password, is_admin) VALUES (?, ?, ?)");
+        $insert_query->execute([$username, $hashed_password, 0]);
 
         header('Location: login.php');
         exit();
