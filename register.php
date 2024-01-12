@@ -51,6 +51,11 @@ $pdo = null;
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
 
+                <script src="https://www.google.com/recaptcha/api.js"
+                async defer>
+            </script>
+            <div class="g-recaptcha" data-sitekey="6LdB6k4pAAAAAFopXt70JMU9VwEAz59gAqUl-cvP" style="margin: auto 150px 10px 150px"></div>
+
                 <button type="submit">Register</button>
                 <p>Есть аккаунт? <a href="login.php">Войти</a></p>
             </form>

@@ -2,18 +2,19 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Цвет фона страницы */
+    background-color: #FBFBFE; /* Цвет фона страницы */
 }
 
 h2 {
-    color: #333; /* Цвет заголовка */
+    color: #050315; /* Цвет заголовка */
 }
 
 .login-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Высота экрана */
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .login-box {
